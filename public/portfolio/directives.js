@@ -27,7 +27,7 @@ app.directive("weatherReport", function() {
    return {
        restrict: 'E',
        templateUrl: 'portfolio/directives/weatherReport.html',
-       replace: true,
+      // replace: true,
        scope: {
            weatherDay: "=",
            convertToStandard: "&",
