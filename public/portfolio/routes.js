@@ -3,29 +3,29 @@
 app.config(function($routeProvider){
     $routeProvider
     .when('/', {
-        templateUrl:'pages/home.html'
+        templateUrl:'portfolio/pages/home.html'
     })
     .when('/home', {
-        templateUrl:'pages/home.html'
+        templateUrl:'portfolio/pages/home.html'
     })
     .when('/weatherIndex', {
-        templateUrl:'pages/weatherIndex.html',
+        templateUrl:'portfolio/pages/weatherIndex.html',
         controller: 'homeController'
     })
     .when('/about', {
-        templateUrl:'pages/about.html',
+        templateUrl:'portfolio/pages/about.html',
        
     })
     .when('/contact', {
-        templateUrl:'pages/contact.html',
+        templateUrl:'portfolio/pages/contact.html',
        
     })
     .when('/forecast', {
-        templateUrl: 'pages/forecast.html',
+        templateUrl: 'portfolio/pages/forecast.html',
         controller: 'forecastController'
     })
     .when('/forecast/:days', {
-        templateUrl: 'pages/forecast.html',
+        templateUrl: 'portfolio/pages/forecast.html',
         controller: 'forecastController'
     })
     
