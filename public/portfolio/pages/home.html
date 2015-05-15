@@ -1,0 +1,74 @@
+<section>
+    <nav class="navbar navbar-default">
+			<div class="head-container">
+			  <div class="container">
+				<ul class="navbar-nav navbar-right nav nav-pills ">
+					<li role="presentation" class="active"><a href="#/home">Home</a></li>
+					<li role="presentation" ><a href="#/about">About</a></li>
+					<li role="presentation" ><a href="#/contact">Contact</a></li>
+					
+				</ul>
+		   	</div>
+		   	</div>
+	 </nav>
+
+      <div class="container container-main">
+        <img src="img/1da9664.jpg" class="profile-img">
+        <header >
+          <h1>HELLO, <br> my name is <strong>{{personalDetails.name}}</strong> and I am a Full stack web developer</h1>
+        </header>
+        <img src="img/line.png" class="line">
+        <div class="row">
+          <div class="col-md-7">
+            <h2>About Me</h2>
+            <p>{{personalDetails.aboutMe}}</p>
+          </div>
+          <div class="col-md-5">
+            <h2>Contact</h2>
+            <ul class="contact-list">
+              <li><img src="img/phone.png"> {{personalDetails.phone}}</li>
+              <li><img src="img/email.png"> {{personalDetails.email}}</li>
+              <li><img src="img/facebook.png"> Facebook<span>{{personalDetails.fbName}}</span></li>
+              <li><img src="img/twitter.png"> Twitter <span>{{personalDetails.twitName}}</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-7">
+            <h2>Education & Experience</h2>
+                <div ng-repeat="exp in experiences" style="display:inline-block;">
+                     <ng-experience-custom exp-obj="exp"></ng-experience-custom>
+                </div>
+          </div>
+          <div class="col-md-5">
+            <h2>Programming Skills</h2>
+             <!--<div>-->
+             <!--   <ng-skill-custom skill-obj="skill" ng-repeat="skill in skills" style="display:inline-block;"></ng-skill-custom>-->
+             <!--</div>-->
+            <div class="progress" ng-repeat="skill in skills">
+              <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width:100%;">
+                {{skill.skill}}
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Recent Projects</h2>
+            <ul class="work-list">
+              <li><a href="#/weatherIndex"><img src="img/fotolia_24853261_XS.jpg" class="project-logo"></a></li>
+              <li><a href="#/home"><img src="img/work2.png" ></a></li>
+              <li><a href="#/home"><img src="img/work3.png"></a></li>
+              <li><a href="#/home"><img src="img/work4.png"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+        <img src="img/line.png" class="line">
+        <h1 class="site-css"> About the site</h1>
+        <p>{{personalDetails.aboutSite}} <a href="https://github.com/vishalchilate/Portfolio.git">github</a> too!</p>
+        </div>
+        </div>
+</section>
