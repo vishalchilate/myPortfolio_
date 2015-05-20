@@ -28,4 +28,17 @@ Days: <a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">2</a> | <
         </div>
     </div>
 </div>
+<div class="row">
+        <div class="col-md-12">
+           <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{weatherResult_new.current_observation.local_time_rfc822}}</h3>
+    </div>
+    <div class="panel-body">
+        <img src="http://icons.wxug.com/i/c/k/clear.gif">
+        Daytime temperature: {{weatherResult_new.current_observation.temperature_string}} {{weatherResult_new.current_observation.icon}} 
+    </div>
+</div>
+        </div>
+    </div>
 </div>
