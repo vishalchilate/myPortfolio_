@@ -78,7 +78,7 @@ app.controller('MainCtrl',[ '$scope', function($scope){
 
 app.controller('homeController', ['$scope', 'cityService', function($scope, cityService) {
     
-    $scope.city = cityService.city;
+    //$scope.city = cityService.city;
     
     $scope.$watch('city', function() {
        cityService.city = $scope.city; 
@@ -91,11 +91,22 @@ app.controller('forecastController', ['$scope', '$resource', '$routeParams', 'ci
     
     $scope.city = cityService.city;
     
+    var state_cd = '';
+    var city_name = $scope.city.split(' ').join('_');
+    
+    
     $scope.days = $routeParams.days || '2';
     
-    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily");
+    $scope.weatherAPI = $resource('http://api.openweathermap.org/data/2.5/forecast/daily',{ callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
     
-    $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: $scope.days });
+    $scope.weatherAPI_new = $resource('https://api.wunderground.com/api/458320d0c703de22/conditions/q/:state_code/:city_nam.json', { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    
+    $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: $scope.days })
+    
+    $scope.weatherResult_new = $scope.weatherAPI_new.get({ state_code: state_cd, city_nam: city_name })
+    
+    
+    
     
     $scope.convertToFahrenheit = function(degK) {
         
