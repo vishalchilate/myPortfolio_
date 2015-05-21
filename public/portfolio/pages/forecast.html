@@ -17,28 +17,32 @@
     <a href="#/weatherIndex">Back to Search</a>
 </p>
 
-Forecast for {{ city }}
+Current Weather for <strong>{{ city | uppercase}}</strong>
+
 <hr />
-Days: <a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">2</a> | <a href="#/forecast/5" ng-class="{ 'bg-primary': days === '5' }">5</a> | <a href="#/forecast/7" ng-class="{ 'bg-primary': days === '7' }">7</a>
-<hr />
-<div ng-repeat="w in weatherResult.list">
-    <div class="row">
-        <div class="col-md-12">
-            <weather-report weather-day="w" convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt)" date-format="MMMM d, y"></weather-report>
-        </div>
-    </div>
-</div>
-<div class="row">
+    <div class="row" ng-if="isAvailable(weatherResult_new)">
         <div class="col-md-12">
            <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{weatherResult_new.current_observation.local_time_rfc822}}</h3>
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{weatherResult_new.current_observation.local_time_rfc822}}</h3>
+                 </div>
+                <div class="panel-body">
+                  <div class="media">
+                    <div class="media-left" style="width:50px; font-size: 0.6em;"><img src={{weatherResult_new.current_observation.icon_url}}></div>
+                    <div class="media-body">Current temperature: {{weatherResult_new.current_observation.temperature_string}} {{weatherResult_new.current_observation.weather}} 
+                    <p style="font-size: 0.8em;">Wind: {{weatherResult_new.current_observation.wind_string}} </p></div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{weatherResult_new.current_observation.forecast_url}}" target="_blank" class="btn btn-primary" style="margin-left:20px;margin-top:10px">Get Forecast</a>
+             
+  
     </div>
-    <div class="panel-body">
-        <img src="http://icons.wxug.com/i/c/k/clear.gif">
-        Daytime temperature: {{weatherResult_new.current_observation.temperature_string}} {{weatherResult_new.current_observation.icon}} 
+    <div class="alert alert-danger" ng-if="!isAvailable(weatherResult_new)">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+         Please enter the city name with state e.g Miami, FL / Miami, Florida!
     </div>
+ 
 </div>
-        </div>
-    </div>
 </div>
+   
