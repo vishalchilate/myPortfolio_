@@ -78,7 +78,7 @@ app.controller('MainCtrl',[ '$scope', function($scope){
 
 app.controller('homeController', ['$scope', 'cityService', function($scope, cityService) {
     
-    //$scope.city = cityService.city;
+    $scope.city = '';
     
     $scope.$watch('city', function() {
        cityService.city = $scope.city; 
