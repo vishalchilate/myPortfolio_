@@ -7773,3 +7773,6 @@ h4.media-heading{
    margin-top:100px;
   }
 }
+.navbar {
+  border: 0px transparent; 
+}
