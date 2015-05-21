@@ -7763,10 +7763,13 @@ h4.media-heading{
   
     
 }
-.container702{
-  
-  
-  
-    
+@media (max-width: 767px) {
+  .abc {
+   margin-top:100px;
+  }
 }
-
+@media (min-width: 768px) and (max-width: 991px) {
+  .abc{
+   margin-top:100px;
+  }
+}
