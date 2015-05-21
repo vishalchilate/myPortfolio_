@@ -120,5 +120,9 @@ app.controller('forecastController', ['$scope', '$resource', '$routeParams', 'ci
         
     };
     
+     $scope.isAvailable = function(obj){
+       return obj.hasOwnProperty('current_observation'); 
+    };
+    
 }]);
 
