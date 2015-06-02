@@ -7776,3 +7776,15 @@ h4.media-heading{
 .navbar {
   border: 0px transparent; 
 }
+
+@media (max-width: 767px) {
+  .navbar-default {
+  background-color: #ededed
+}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-default {
+  background-color: #ededed
+}
+}
+
